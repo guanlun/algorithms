@@ -13,7 +13,7 @@ var integerBreak = function(n) {
     for (var i = 4; i <= n; i++) {
         var max = 0;
         
-        for (var sub = 2; sub <= n / 2; sub++) {
+        for (var sub = 2; sub <= 3; sub++) {
             var firstOp = lookup[sub];
             var secondOp = lookup[i - sub];
             
