@@ -9,6 +9,13 @@ For generating permutations without recursion, use a queue. In each iteration, g
 ### Dynamic Programming
 Consider carefully what the range is, e.g., for a coin count problem, we may need to start the index for 1 and use <= as the ending condition. Also, note that sometimes in DP the previous amount is invalid (e.g., knapsack), need to handle such invalid cases.
 
+### Generating combinations (77)
+Could use the recursive backtracking approach by passing `results` down:
+* Starting from the 1st element, call 2 recursive functions (one with new element added and the other one without).
+* When there are enough elements, add the current result to the `results` array and stop.
+* When there are not enough elements (`total number n - current number + current result length + 1 <= target number of elements in result`), only call the recursive function with the current element added.
+* Think about `n - curr + 1 + len <= k` in this way: at position `curr`, we still have `n - curr + 1` elements to visit. If `k` is larger than the number of elements we have then there's no way we could reach `k` elements.
+
 ### Java
 Do not misuse the LinkedList methods
 
