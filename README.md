@@ -16,6 +16,13 @@ Could use the recursive backtracking approach by passing `results` down:
 * When there are not enough elements (`total number n - current number + current result length + 1 <= target number of elements in result`), only call the recursive function with the current element added.
 * Think about `n - curr + 1 + len <= k` in this way: at position `curr`, we still have `n - curr + 1` elements to visit. If `k` is larger than the number of elements we have then there's no way we could reach `k` elements.
 
+### Combination Sum (39, 40, 216)
+Use DFS, maintaining the current items in the combination.
+* End recursion when the sum is equal to (or larger than) the target value.
+* Remember to make a copy of the current array when adding to the final results, since the current array keeps mutating.
+* To avoid duplicated items, skip items that equal to its previous item.
+* Example, target is `5` and input is `[1, 1, 2, 2, 2]`, at the first `2`, we enter the DFS with `[2, 2]` remaining and do not skip the next `2`. However, after coming back from that DFS, moving on to the second `2`, there's no point doing DFS again at it since we've already included that in our previous search.
+
 ### Generating permutations with duplicated items (47)
 Use DFS, maintaining the visited items and avoid continuing on duplication.
 * To avoid inserting duplicated item, sort the input array first so that we could easily check whether the current number has been processed.
