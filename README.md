@@ -29,6 +29,14 @@ Use DFS, maintaining the visited items and avoid continuing on duplication.
 * Maintain an array of visited items, if the previous item is equal to the current item and the previous item has been visited, stop. This is to eliminating every permutation except the one going through the duplicated items from the back to the front.
 * Example: `[1, 1, 1, 2]`, when going deep into the recursion, unless we are going through `[1, 1, 1]` from the back to the front, we will eventually come into the case where the previous item is visited before, thus an invalid case.
 
+### Dealing with binary tree sub problems (250)
+For problems that requires both subtrees and the relation between the parent and child nodes to meet some criteria, use the following procedure to shorten the code:
+* If node is null, consider as "meeting the criteria".
+* If one of two subtrees does not meet, negative result.
+* If left is not null and left - parent relation does not meet, negative.
+* Right side version of last step.
+* Now, there can only be: left is null and right meets, right is null and left meets, left & right are both null, positive result.
+
 ### Java
 Do not misuse the LinkedList methods
 
