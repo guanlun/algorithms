@@ -1,6 +1,6 @@
 algorithms
 =========
-My solutions to the algorithm problems on LeetCode.
+My solutions to the algorithm problems.
 
 ## Some Thoughts:
 ### Data Structures
