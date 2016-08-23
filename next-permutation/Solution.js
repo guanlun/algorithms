@@ -11,23 +11,23 @@ var nextPermutation = function(nums) {
 var findReversePoint = function(nums) {
     var last = nums.length - 1;
     
-    // Find the first element that's smaller than it's next element.
-    for (var firstIncreasingIdx = last; firstIncreasingIdx > 0; firstIncreasingIdx--) {
-        if (nums[firstIncreasingIdx - 1] < nums[firstIncreasingIdx]) {
+    // Find the last element that's smaller than it's next element.
+    for (var lastIncreasingIndex = last; lastIncreasingIndex > 0; lastIncreasingIndex--) {
+        if (nums[lastIncreasingIndex - 1] < nums[lastIncreasingIndex]) {
             break;
         }
     }
     
-    if (firstIncreasingIdx === 0) {
+    if (lastIncreasingIndex === 0) {
         return 0;
     }
     
-    // Now find the min element that's larger than the first increasing element.
-    var pivot = nums[firstIncreasingIdx - 1];
-    var minLargerIdx = firstIncreasingIdx;
-    var minLargerItem = nums[firstIncreasingIdx];
+    // Now find the min element that's larger than the last increasing element.
+    var pivot = nums[lastIncreasingIndex - 1];
+    var minLargerIdx = lastIncreasingIndex;
+    var minLargerItem = nums[lastIncreasingIndex];
     
-    for (var i = firstIncreasingIdx; i < nums.length; i++) {
+    for (var i = lastIncreasingIndex; i < nums.length; i++) {
         var item = nums[i];
         if ((item > pivot) && (item <= minLargerItem)) { // Use <= !!!
             minLargerItem = item;
@@ -35,9 +35,9 @@ var findReversePoint = function(nums) {
         }
     }
     
-    swap(nums, firstIncreasingIdx - 1, minLargerIdx);
+    swap(nums, lastIncreasingIndex - 1, minLargerIdx);
     
-    return firstIncreasingIdx;
+    return lastIncreasingIndex;
 };
 
 var reverseFrom = function(nums, index) {
