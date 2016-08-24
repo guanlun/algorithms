@@ -37,6 +37,12 @@ For problems that requires both subtrees and the relation between the parent and
 * Right side version of last step.
 * Now, there can only be: left is null and right meets, right is null and left meets, left & right are both null, positive result.
 
+### Next permutation
+* First find the last item greater than the item after it, then find the minimum item that is after and larger than it.
+* Swap the last increasing index and the minimum larger index.
+* Reverse everything after the last increasing index.
+Note that when comparing the minimum item after `lastIncreasingIndex` that's larger than it, use `>=` instead of `>`, since we'd like to get the last item.
+
 ### Java
 Do not misuse the LinkedList methods
 
@@ -45,4 +51,3 @@ Do not misuse the LinkedList methods
 * Always remember to check when input is 0, 1 or null.
 * When doing binary search, left should be set to mid + 1 if mid is less that the target value.
 * Javascript and Java Strings are immutable, keep in mind that we cannot directly operate on strings. Need to build a char array and then join the characters.
-
