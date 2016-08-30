@@ -2,6 +2,16 @@ algorithms
 =========
 My solutions to the algorithm problems.
 
+## What to clarify before jumping into coding:
+### General
+* Do I need to handle invalid inputs?
+
+### Array
+* Does the array contain duplicate items?
+
+### Generating numbers
+* Do we allow 0 in the first digit?
+
 ## Some Thoughts:
 ### Data Structures
 For generating permutations without recursion, use a queue. In each iteration, get the length of the queue, pop them out one by one and addLast the generated values.
