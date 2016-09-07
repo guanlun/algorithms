@@ -1,44 +1,22 @@
 public class Solution {
-    class SearchResult {
-        int numFound;
-        TreeNode ancestor;
-        
-        SearchResult() {
-            numFound = 0;
-            ancestor = null;
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        if (root == null) {
+            return null;
         }
-    }
-    
-    public SearchResult search(TreeNode curr, TreeNode p, TreeNode q) {
-        SearchResult result = new SearchResult();
-        
-        if (curr == null) {
-            return result;
+
+        if (root == p || root == q) {
+            return root;
         }
-        
-        SearchResult leftResult = search(curr.left, p, q);
-        SearchResult rightResult = search(curr.right, p, q);
-        
-        if (leftResult.ancestor != null) {
+
+        TreeNode leftResult = lowestCommonAncestor(root.left, p, q);
+        TreeNode rightResult = lowestCommonAncestor(root.right, p, q);
+
+        if (leftResult != null && rightResult != null) {
+            return root;
+        } else if (leftResult != null) {
             return leftResult;
-        } else if (rightResult.ancestor != null) {
+        } else {
             return rightResult;
         }
-        
-        result.numFound = leftResult.numFound + rightResult.numFound;
-        
-        if ((curr == p) || (curr == q)) {
-            result.numFound++;
-        }
-        
-        if (result.numFound == 2) {
-            result.ancestor = curr;
-        }
-        
-        return result;
-    }
-    
-    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-        return search(root, p, q).ancestor;
     }
 }
