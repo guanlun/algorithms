@@ -1,3 +1,4 @@
+
 algorithms
 =========
 My solutions to the algorithm problems.
@@ -51,13 +52,18 @@ For problems that requires both subtrees and the relation between the parent and
 * First find the last item greater than the item after it, then find the minimum item that is after and larger than it.
 * Swap the last increasing index and the minimum larger index.
 * Reverse everything after the last increasing index.
-Note that when comparing the minimum item after `lastIncreasingIndex` that's larger than it, use `>=` instead of `>`, since we'd like to get the last item.
+  Note that when comparing the minimum item after `lastIncreasingIndex` that's larger than it, use `>=` instead of `>`, since we'd like to get the last item.
+
+### Word Ladder
+* Do not iterator through the whole set of words each time. Try to create possible new words from the current word and check if that new word is in the list.
 
 ### Java
-Do not misuse the LinkedList methods
+* Do not misuse the LinkedList methods
+* The foreach loop is a syntax sugar for an iterator, however we do not have access to the iterator when usingthe foreach loop. The only way to remove items while iterating is to use an `Iterator` explicitly.
 
 ### Misc
 * Remember to assign the loop variable, do not mix up loop index and item in the list.
 * Always remember to check when input is 0, 1 or null.
 * When doing binary search, left should be set to mid + 1 if mid is less that the target value.
 * Javascript and Java Strings are immutable, keep in mind that we cannot directly operate on strings. Need to build a char array and then join the characters.
+* Use a queue for BFS. When we need to track the depth, create a local variable `n` for the size at the beginning of each iteration and remove `n` items from the queue in each iteration.
