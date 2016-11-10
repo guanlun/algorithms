@@ -12,18 +12,14 @@ var lengthLongestPath = function(input) {
             depth++;
         }
 
-        depthLookup[depth] = {
-            index: i,
-        };
-
         if (depth === 0) {
-            depthLookup[depth].len = line.length;
+            depthLookup[depth] = line.length;
         } else {
-            depthLookup[depth].len = depthLookup[depth - 1].len + line.length + 1 - depth;
+            depthLookup[depth] = depthLookup[depth - 1] + line.length + 1 - depth;
         }
 
-        if (line.indexOf('.') !== -1 && depthLookup[depth].len > maxDepth) {
-            maxDepth = depthLookup[depth].len;
+        if (line.indexOf('.') !== -1 && depthLookup[depth] > maxDepth) {
+            maxDepth = depthLookup[depth];
         }
     }
 
