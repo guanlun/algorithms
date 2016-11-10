@@ -3,7 +3,7 @@ public class Solution {
         long left = 0;
         long right = num;
 
-        while (left < right) {
+        while (left <= right) {
             long mid = left + (right - left) / 2;
 
             if (mid * mid == num) {
@@ -15,7 +15,6 @@ public class Solution {
             }
         }
 
-        return (left * left == num);
+        return false;
     }
-
 }
