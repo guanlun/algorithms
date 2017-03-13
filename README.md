@@ -57,6 +57,10 @@ For problems that requires both subtrees and the relation between the parent and
 ### Word Ladder
 * Do not iterator through the whole set of words each time. Try to create possible new words from the current word and check if that new word is in the list.
 
+### Prefix tree (Trie)
+* Each node does not hold a value, instead, it holds a boolean value indicating whether it's an end point (whole word), and a map from a character to one of its children.
+* If we have a small alphabet, we could replace the map with an array of a fixed number of elements (equal to the alphabet size).
+
 ### Java
 * Do not misuse the LinkedList methods
 * The foreach loop is a syntax sugar for an iterator, however we do not have access to the iterator when usingthe foreach loop. The only way to remove items while iterating is to use an `Iterator` explicitly.
